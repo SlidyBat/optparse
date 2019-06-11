@@ -55,7 +55,7 @@ public:
 	std::string GetArg( int index ) const { return stray_strings[index]; };
 
 	// Returns whether the specified option exists (was 
-	bool Exists( const std::string& opt )
+	bool Exists( const std::string& opt ) const
 	{
 		auto it = option_args.find( opt );
 		if( it == option_args.end() )
@@ -66,7 +66,7 @@ public:
 		return true;
 	}
 	// Returns the argument for the option if it exists, or nullptr if it doesn't
-	const char* Get( const std::string& opt )
+	const char* Get( const std::string& opt ) const
 	{
 		auto it = option_args.find( opt );
 		if( it == option_args.end() )
@@ -77,7 +77,7 @@ public:
 		return it->second.c_str();
 	}
 	// Returns the argument for the option if it exists, or nullptr if it doesn't
-	const char* operator[]( const std::string& opt )
+	const char* operator[]( const std::string& opt ) const
 	{
 		return Get( opt );
 	}
