@@ -30,7 +30,7 @@ public:
 		return *this;
 	}
 
-	void Process( int argc, char** argv )
+	void Process( int argc, const char** argv )
 	{
 		for( int i = 1; i < argc; i++ )
 		{
@@ -82,7 +82,7 @@ public:
 		return Get( opt );
 	}
 private:
-	int ProcessLongOption( int index, int argc, char** argv )
+	int ProcessLongOption( int index, int argc, const char** argv )
 	{
 		std::string option = &argv[index][2]; // get the option without the -- at the start
 		for( const Option& o : options )
@@ -106,7 +106,7 @@ private:
 
 		return index;
 	}
-	int ProcessShortOption( int index, int argc, char** argv )
+	int ProcessShortOption( int index, int argc, const char** argv )
 	{
 		std::string shortoptions = &argv[index][1];
 		for( size_t i = 0; i < shortoptions.size(); i++ )
